@@ -1,6 +1,3 @@
-[submodule "source/index_source"]
-	path = source/_posts
-	url = git@lab902:/home/git/index_source.git
-[submodule "themes/random"]
-	path = themes/random
+[submodule "themes/hexo-theme-random"]
+	path = themes/hexo-theme-random
 	url = https://github.com/Baileyswu/hexo-theme-random.git

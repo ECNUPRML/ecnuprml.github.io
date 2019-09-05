@@ -75,7 +75,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 # plugins: 
 #   hexo-math
-theme: random
+theme: hexo-theme-random
 # theme: next
 # theme: simplest
 
