@@ -8,6 +8,6 @@ author: Danliwoo
 
 模式识别与机器学习实验室
 
-[Shiliang Sun’s Home Page](http://www.cs.ecnu.edu.cn/~slsun/)
+[Shiliang Sun’s Home Page](https://shiliangsun.github.io)
 
 [Jing Zhao's Home Page](https://faculty.ecnu.edu.cn/s/3536/t/35837/main.jspy)
