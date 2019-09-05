@@ -7,6 +7,17 @@ tags:
  - blog
 ---
 
+## Know Branch
+
+>
+ - mainstream 源文件（markdown）
+ - master 网页文件 (HTML)
+ - write 您需要在此分支 checkout 一个新分支
+
+[see network](https://github.com/ECNUPRML/ecnuprml.github.io/network)
+
+## Step
+
 ```bash
 > git clone git@github.com:ECNUPRML/ecnuprml.github.io.git
 > git checkout write
