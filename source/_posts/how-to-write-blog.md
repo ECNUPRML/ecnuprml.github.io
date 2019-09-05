@@ -23,7 +23,7 @@ tags:
 
 确认无误后提交您的分支
 
-```
+```bash
 > git add .
 > git commit -m "msg"
 > git push --set-upstream origin yourname/topic
@@ -33,11 +33,12 @@ tags:
 
 确认无误后，在 `github` 的 `repo` 中请求将您的分支合并到 `mainstream` 中。
 
-![Create pull request](PR.png)
+![Create pull request](PR.PNG)
+
 
 等待管理员确认您的合并请求。
 
-![Merged](merge.png)
+![Merged](merge.PNG)
 
 发布成功！
 
