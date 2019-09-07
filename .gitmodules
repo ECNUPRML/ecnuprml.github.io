@@ -1,0 +1,3 @@
+[submodule "themes/hexo-theme-random"]
+	path = themes/hexo-theme-random
+	url = https://github.com/Baileyswu/hexo-theme-random.git

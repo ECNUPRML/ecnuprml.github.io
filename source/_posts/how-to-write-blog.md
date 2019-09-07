@@ -9,12 +9,13 @@ tags:
 
 ## Know Branch
 
->
  - mainstream 源文件（markdown）
  - master 网页文件 (HTML)
- - write 您需要在此分支 checkout 一个新分支
+ - write 您需要在此分支 checkout 一个新分支 new
 
 [see network](https://github.com/ECNUPRML/ecnuprml.github.io/network)
+
+请确保 write 分支是 new 分支的 parent，即当前两个分支的 log 是完全相同的。
 
 ## Step
 
@@ -46,10 +47,16 @@ tags:
 
 ![Create pull request](PR.PNG)
 
+在 request 创建成功后，会自动触发 Travis CI Build 您的网页。在 build 成功后您可以在 Archives 上查看最新发布的文章。（[为何能够自动触发？](https://github.com/gymgle/g2ex.github.io/blob/d105dc258a9184b667578d9196c223a567fe2269/source/_posts/2019-06-28-hexo-with-travis-ci.md)）
 
-等待管理员确认您的合并请求。
+但此时，您的分支并没有合并到 `mainstream` 上。合并成功需满足两个前提：
+
+1. At least 2 reviews approve your code.
+2. Travis CI Build 成功。（会自动开启 build）
+
+若满足以上条件则可以确认合并请求。
 
 ![Merged](merge.PNG)
 
-发布成功！
+合并成功！
 
