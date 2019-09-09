@@ -49,6 +49,8 @@ tags:
 
 等待管理员确认您的合并请求。
 
+为了保证 mainstream 尽量整洁，请点 **Squash Merge**.
+
 ![Merged](merge.PNG)
 
 发布成功！
