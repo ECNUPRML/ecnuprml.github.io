@@ -56,6 +56,8 @@ tags:
 
 若满足以上条件则可以确认合并请求。
 
+为了保证 mainstream 尽量整洁，请点 **Squash Merge**.
+
 ![Merged](merge.PNG)
 
 合并成功！
