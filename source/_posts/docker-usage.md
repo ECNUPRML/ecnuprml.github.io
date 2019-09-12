@@ -12,9 +12,6 @@ categories: tools
 ---
 # Docker从入门到放弃
 ----
-> 作者: [宗道明](https://github.com/zongdaoming)
->
-> 校验: [吴丽丹](https://github.com/Baileyswu)
 
 请参阅[Tensorflow官方文档][2]和[Docker官方文档获得详细信息][1]。
 
