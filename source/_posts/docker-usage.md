@@ -10,7 +10,13 @@ author: zongdaoming
 summary: Docer的入门级使用
 categories: tools
 ---
-# Docker 入门
+# Docker从入门到放弃
+----
+> 作者: [宗道明](https://github.com/zongdaoming)
+>
+> 校验: [吴丽丹](https://github.com/Baileyswu)
+
+请参阅[Tensorflow官方文档][2]和[Docker官方文档获得详细信息][1]。
 
 ## 启动 TensorFlow Docker 容器
 要启动配置 TensorFlow 的容器，请使用以下命令格式：
@@ -95,9 +101,12 @@ RUN conda install -c maciejkula -c soumith spotlight=0.1.2
 docker build -t graphsage:gpu -f Dockerfile.gpu .
 nvidia-docker run -it graphsage:gpu bash
 ```
-
 ##其他命令
 - docker search python # 搜寻镜像
 - docker stop container-name/container-id # 停止运行着的容器
 - docker rm container-name # 删除已有的容器，要先停止
 - docker rmi image-name # 删除已有的镜像
+
+[1]: https://docs.docker.com/engine/reference/run/#clean-up---rm
+[2]: https://tensorflow.google.cn/install/docker
+[3]: https://blog.csdn.net/jianchengss/article/details/78224778
