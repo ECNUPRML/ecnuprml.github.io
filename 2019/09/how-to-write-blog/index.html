@@ -1,0 +1,414 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Danliwoo">
+  
+  
+  
+  
+    <meta name="description" content="Know Branch
+mainstream 源文件（markdown）
+master 网页文件 (HTML)
+write 您需要在此分支 checkout 一个新分支 new
+
+see network
+请确保 write 分支是 new 分支的 parent，即当前两个分支的 log 是完全相同的。
+Step123456789&gt; git clone git@github.com:EC...">
+  
+  <title>如何发布博客 [ Pattern Recognition and Machine Learning ]</title>
+  
+  
+    <link rel="shortcut icon" href="/hollow.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2019/09/how-to-writing-paper/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        How to write your first SCI paper?
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2019/09/welcome/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Welcome
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onclick="openUserCard()">
+          <img id="avatar" src="/ECNU_Emblem.svg.png">
+          <div id="homelink">Pattern Recognition and Machine Learning</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/ECNUPRML/ecnuprml.github.io">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+  
+
+
+  <article id="post">
+    <h1>如何发布博客</h1>
+    <p class="page-title-sub">
+      <span id="post-title-date">撰写于 2019-09-05</span>
+      
+      <span id="post-title-categories">分类
+        
+        
+          
+          
+          <a href="/categories/使用说明/">使用说明</a>
+        
+      </span>
+      
+      
+        <span id="post-title-tags">
+          标签
+          
+          
+            
+            
+            <a href="/tags/git/">git</a>
+          
+            
+              /
+            
+            
+            <a href="/tags/blog/">blog</a>
+          
+        </span>
+      
+      <span id="/2019/09/how-to-write-blog/" class="leancloud-visitors" data-flag-title="如何发布博客">
+        <i class="leancloud-visitors-count"></i>
+        <em class="post-meta-item-text"> views </em>
+      </span>
+    </p>
+    
+    <h2 id="Know-Branch"><a href="#Know-Branch" class="headerlink" title="Know Branch"></a>Know Branch</h2><ul>
+<li>mainstream 源文件（markdown）</li>
+<li>master 网页文件 (HTML)</li>
+<li>write 您需要在此分支 checkout 一个新分支 new</li>
+</ul>
+<p><a href="https://github.com/ECNUPRML/ecnuprml.github.io/network" target="_blank" rel="noopener">see network</a></p>
+<p>请确保 write 分支是 new 分支的 parent，即当前两个分支的 log 是完全相同的。</p>
+<h2 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; git <span class="built_in">clone</span> git@github.com:ECNUPRML/ecnuprml.github.io.git</span><br><span class="line">&gt; git checkout write</span><br><span class="line"></span><br><span class="line">  Switched to a new branch <span class="string">'write'</span></span><br><span class="line">  Branch <span class="string">'write'</span> <span class="built_in">set</span> up to track remote branch <span class="string">'write'</span> from <span class="string">'origin'</span>.</span><br><span class="line"></span><br><span class="line">&gt; git checkout -b yourname/topic</span><br><span class="line">  </span><br><span class="line">  Switched to a new branch <span class="string">'yourname/topic'</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>source/_posts/</code> 目录中编写您的博客内容。若要插图请新建一个同名文件夹，将图片放于该文件夹中。</p>
+<p>确认无误后提交您的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; git add .</span><br><span class="line">&gt; git commit -m <span class="string">"msg"</span></span><br><span class="line">&gt; git push --<span class="built_in">set</span>-upstream origin yourname/topic</span><br></pre></td></tr></table></figure>
+<p>如需修改，请继续在您的分支提交修改。</p>
+<p>确认无误后，在 <code>github</code> 的 <code>repo</code> 中请求将您的分支合并到 <code>mainstream</code> 中。</p>
+<p><img src="/2019/09/how-to-write-blog/PR.PNG" alt="Create pull request"></p>
+<p>在 request 创建成功后，会自动触发 Travis CI Build 您的网页。在 build 成功后您可以在 Archives 上查看最新发布的文章。（<a href="https://github.com/gymgle/g2ex.github.io/blob/d105dc258a9184b667578d9196c223a567fe2269/source/_posts/2019-06-28-hexo-with-travis-ci.md" target="_blank" rel="noopener">为何能够自动触发？</a>）</p>
+<p>但此时，您的分支并没有合并到 <code>mainstream</code> 上。合并成功需满足两个前提：</p>
+<ol>
+<li>At least 2 reviews approve your code.</li>
+<li>Travis CI Build 成功。（会自动开启 build）</li>
+</ol>
+<p>若满足以上条件则可以确认合并请求。</p>
+<p>为了保证 mainstream 尽量整洁，请点 <strong>Squash Merge</strong>.</p>
+<p><img src="/2019/09/how-to-write-blog/merge.PNG" alt="Merged"></p>
+<p>合并成功！</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Know-Branch"><span class="toc-text">Know Branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step"><span class="toc-text">Step</span></a></li></ol>
+  </div>
+</div>
+
+  
+    <div id="valine_container" class="valine_thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+        el: '#valine_container',
+        notify: notify,
+        verify: verify,
+        appId: "EPK9T2J9yGw23C2FeKGcwJ2d-gzGzoHsz",
+        appKey: "PUwKL3AIJDYJvH0qPVEuMvVM",
+        placeholder: "我不要你觉得，我要我觉得~",
+        pageSize:'10',
+        avatar:'robohash',
+        lang:'en',
+        visitor: 'true'
+    })
+</script>
+
+  
+  
+<nav id="pagination">
+  
+    <a href="/2019/09/how-to-writing-paper/" class="prev">&larr; 上一篇 How to write your first SCI paper?</a>
+  
+
+  
+
+  
+    <a href="/2019/09/welcome/" class="next">下一篇 Welcome &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Danliwoo using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/ECNU_Emblem.svg.png">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":1500000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "A0522D";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+

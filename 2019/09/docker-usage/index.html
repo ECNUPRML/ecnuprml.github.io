@@ -1,0 +1,427 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Danliwoo">
+  
+  
+  
+  
+    <meta name="description" content="请参阅Tensorflow官方文档和Docker官方文档获得更加详细使用信息。
+启动 TensorFlow Docker 容器要启动配置 TensorFlow 的容器，请使用以下命令格式：1docker run [-it] [--rm] [-p hostPort:containerPort] tensorflow/tensorflow[:tag] [command]
+其中，
+
+docker ...">
+  
+  <title>Docker从入门到放弃 [ Pattern Recognition and Machine Learning ]</title>
+  
+  
+    <link rel="shortcut icon" href="/hollow.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2019/09/19-09-05组会/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        RelGAN: Relational generative adversarial networks for text generation
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onclick="openUserCard()">
+          <img id="avatar" src="/ECNU_Emblem.svg.png">
+          <div id="homelink">Pattern Recognition and Machine Learning</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/ECNUPRML/ecnuprml.github.io">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+  
+
+
+  <article id="post">
+    <h1>Docker从入门到放弃</h1>
+    <p class="page-title-sub">
+      <span id="post-title-date">撰写于 2019-09-12</span>
+      
+      <span id="post-title-categories">分类
+        
+        
+          
+          
+          <a href="/categories/tools/">tools</a>
+        
+      </span>
+      
+      
+        <span id="post-title-tags">
+          标签
+          
+          
+            
+            
+            <a href="/tags/tools/">tools</a>
+          
+            
+              /
+            
+            
+            <a href="/tags/docker/">docker</a>
+          
+        </span>
+      
+      <span id="/2019/09/docker-usage/" class="leancloud-visitors" data-flag-title="Docker从入门到放弃">
+        <i class="leancloud-visitors-count"></i>
+        <em class="post-meta-item-text"> views </em>
+      </span>
+    </p>
+    
+    <p>请参阅<a href="https://tensorflow.google.cn/install/docker" target="_blank" rel="noopener">Tensorflow官方文档</a>和<a href="https://docs.docker.com/engine/reference/run/#clean-up---rm" target="_blank" rel="noopener">Docker官方文档</a>获得更加详细使用信息。</p>
+<h2 id="启动-TensorFlow-Docker-容器"><a href="#启动-TensorFlow-Docker-容器" class="headerlink" title="启动 TensorFlow Docker 容器"></a>启动 TensorFlow Docker 容器</h2><p>要启动配置 TensorFlow 的容器，请使用以下命令格式：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [-it] [--rm] [-p hostPort:containerPort] tensorflow/tensorflow[:tag] [command]</span><br></pre></td></tr></table></figure></p>
+<p>其中，</p>
+<ul>
+<li><code>docker run</code>是使用一个镜像生成一个运行的容器；</li>
+<li><code>-it</code>指交互模式，启动后终端在运行着的容器里面，与之对应的有-d后端运行模式，启动后终端交互在实体机，要想进入容器需要使用命令<code>docker exec -it container-name bash</code> <code>docker exec -it container-name</code>意为交互模式进入正在运行的一个容器，bash意为进入容器后使用的命令，这里用的是bash，这样进入容器后就能执行shell；</li>
+<li><code>--rm</code>意为退出shell的时候自动删除容器，常在测试的时候使用，这样不用每次修改去删除已有的容器</li>
+<li><code>-p hostport:containerPort</code>指的是端口映射，前面的是实体机的端口，后面是容器里面暴露出的端口，两边端口可以不一样，这样同一个镜像可以启动多个对应不同端口的服务，如<code>-p 8000:4000</code></li>
+<li><code>tensorflow/tensorflow[:tag]</code>表示的是镜像的名字，冒号后面是tag,表示版本，如果不显示给出tag这每次都会从hub上拉取latest的镜像。如基础镜像jupyter常推荐使用的一个版本(jupyter镜像预装了很多常用的模块)：<code>jupyter/datascience-notebook:281505737f8a</code>。 <strong>如果网络环境不好的话比较费时间，推荐显式给出tag，这样每次构建都会使用已有的镜像。</strong></li>
+</ul>
+<p>参看<a href="https://hub.docker.com/r/tensorflow/tensorflow/tags/" target="_blank" rel="noopener"><code>here</code></a>查看每个tensorflow镜像具体的版本。<br>下载tensorflow镜像的命令是：<code>docker pull tensflow/tensorflow:tag</code>,如：</p>
+<ul>
+<li>docker pull tensorflow/tensorflow                     # latest stable release</li>
+<li>docker pull tensorflow/tensorflow:devel-gpu           # nightly dev release w/ GPU support</li>
+<li>docker pull tensorflow/tensorflow:latest-gpu-jupyter  # latest release w/ GPU support and Jupyter</li>
+</ul>
+<h2 id="启用带权限控制的容器"><a href="#启用带权限控制的容器" class="headerlink" title="启用带权限控制的容器"></a>启用带权限控制的容器</h2><p><code>docker run -d -p 8000:4000 jupyter/datascience-notebook start-notebook.sh --NotebookApp.password=&#39;pwd&#39;</code></p>
+<h3 id="运行带有目录共享的容器"><a href="#运行带有目录共享的容器" class="headerlink" title="运行带有目录共享的容器"></a>运行带有目录共享的容器</h3><p><code>docker run -it --rm  -p 8000:4000 -v /home/zongdaoming/cv/GraphSAGE/:/home/zongdaoming/work  jupyter/datascience-notebook start-notebook.sh --NotebookApp.password=&#39;pwd&#39;</code></p>
+<ol>
+<li>密码生成的两种方式 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> IPython</span><br><span class="line">IPython.lib.passwd()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ipython</span><br><span class="line"><span class="keyword">from</span> noteboook.auth <span class="keyword">import</span> passwd</span><br><span class="line">passwd()</span><br><span class="line">quit()</span><br></pre></td></tr></table></figure>
+<ol>
+<li>生成jupyter notebook 的配置文件<br><code>jupyter notebook --generate-config</code> 这时候会生成配置文件 在<code>~/.jupyter/jupyter_notebook_config.py</code>,我们需要修改配置文件<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.jupyter/jupyter_notebook_config.py</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>加入如下内容，其中sha1那一串秘钥是上面生成的那一串<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip=<span class="string">'*'</span></span><br><span class="line">c.NotebookApp.password = <span class="string">u'pwd'</span></span><br><span class="line">c.NotebookApp.open_browser = <span class="literal">False</span></span><br><span class="line">c.NotebookApp.port =<span class="number">4000</span></span><br></pre></td></tr></table></figure></p>
+<p>4000表明要使用container的4000端口访问jupyter，然后保存退出</p>
+<ol>
+<li>打开jupyter notebook<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook  --allow-root</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="带有目录共享的容器"><a href="#带有目录共享的容器" class="headerlink" title="带有目录共享的容器"></a>带有目录共享的容器</h2><p><code>docker run -it --rm -p 8888:8888 -v /home/zongdaoming/cv/GraphSAGE/notebook:/home/zongdaoming/   jupyter/datascience-notebook start-notebook.sh --NotebookApp.password=&#39;pwd&#39;</code><br>`</p>
+<p>VOLUME (shared filesystems)<br><code>-v, --volume=[host-src:]container-dest[:&lt;options&gt;]: Bind</code> 如<code>&quot;/home/zongdaoming/cv/GraphSAGE/notebook:/home/zongdaoming/&quot;</code></p>
+<p>container-dest必须始终是绝对路径，例如/src/docs。host-src可以是绝对路径，也可以是名称值。如果为host-dir提供绝对路径，Docker绑定将挂载到指定的路径。如果提供一个名称，Docker将根据该名称创建一个已命名的卷。 例如，可以为host-src值指定/foo或foo。如果提供/foo值，Docker将创建绑定挂载。如果您提供foo规范，Docker将创建一个命名卷。</p>
+<h2 id="构建Dockerfile"><a href="#构建Dockerfile" class="headerlink" title="构建Dockerfile"></a>构建Dockerfile</h2><p>Dockerfile由多条指令组成，每条指令在编译镜像时执行相应的程序完成某些功能，由指令+参数组成，以逗号分隔，#作为注释起始符，虽说指令不区分大小写，但是一般指令使用大些，参数使用小写。One example:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM jupyter/datascience-notebook:<span class="number">281505737</span>f8a</span><br><span class="line">MAINTAINER zong <span class="string">"15901768536@163.com"</span></span><br><span class="line"><span class="comment"># pytorch</span></span><br><span class="line">RUN conda install pytorch torchvision -c soumith</span><br><span class="line"><span class="comment"># spotlight(https://github.com/maciejkula/spotlight)</span></span><br><span class="line">RUN conda install -c maciejkula -c soumith spotlight=<span class="number">0.1</span><span class="number">.2</span></span><br></pre></td></tr></table></figure></p>
+<p>其中，</p>
+<ul>
+<li>指令：<strong>FROM</strong> 功能描述：设置基础镜像 语法：FROM &lt; image&gt;[:&lt; tag&gt; | @&lt; digest&gt;] </li>
+<li>指令：<strong>MAINTAINER</strong> 功能描述：设置镜像作者 语法：MAINTAINER &lt; name&gt; </li>
+<li>指令：<strong>RUN</strong> 语法：RUN &lt; command&gt; RUN [“executable”,”param1”,”param2”] 提示：RUN指令会生成容器，在容器中执行脚本，容器使用当前镜像，脚本指令完成后，Docker Daemon会将该容器提交为一个<strong>中间镜像</strong>，供后面的指令使用 </li>
+<li>指令：<strong>COPY</strong>  功能描述：复制文件到镜像中 语法：COPY &lt; src&gt;… &lt; dest&gt;|[“&lt; src&gt;”,… “&lt; dest&gt;”] 提示：指令逻辑和ADD十分相似，同样Docker Daemon会从编译目录寻找文件或目录，dest为镜像中的绝对路径或者相对于WORKDIR的路径</li>
+</ul>
+<p>从构建的镜像运行容器，命令如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t graphsage:gpu -f Dockerfile.gpu .</span><br><span class="line">nvidia-docker run -it graphsage:gpu bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><ul>
+<li>docker search python # 搜寻镜像</li>
+<li>docker stop container-name/container-id # 停止运行着的容器</li>
+<li>docker rm container-name # 删除已有的容器，要先停止</li>
+<li>docker rmi image-name # 删除已有的镜像</li>
+</ul>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动-TensorFlow-Docker-容器"><span class="toc-text">启动 TensorFlow Docker 容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启用带权限控制的容器"><span class="toc-text">启用带权限控制的容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行带有目录共享的容器"><span class="toc-text">运行带有目录共享的容器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带有目录共享的容器"><span class="toc-text">带有目录共享的容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构建Dockerfile"><span class="toc-text">构建Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他命令"><span class="toc-text">其他命令</span></a></li></ol>
+  </div>
+</div>
+
+  
+    <div id="valine_container" class="valine_thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'false' == true;
+    var valine = new Valine();
+    valine.init({
+        el: '#valine_container',
+        notify: notify,
+        verify: verify,
+        appId: "EPK9T2J9yGw23C2FeKGcwJ2d-gzGzoHsz",
+        appKey: "PUwKL3AIJDYJvH0qPVEuMvVM",
+        placeholder: "我不要你觉得，我要我觉得~",
+        pageSize:'10',
+        avatar:'robohash',
+        lang:'en',
+        visitor: 'true'
+    })
+</script>
+
+  
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2019/09/19-09-05组会/" class="next">下一篇 RelGAN: Relational generative adversarial networks for text generation &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Danliwoo using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/ECNU_Emblem.svg.png">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash"],"timer":true,"delay":1500000,"shuffle":true,"count":12};
+var unsplashConfig = {"gravity":"center"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "A0522D";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+
